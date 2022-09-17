@@ -3,6 +3,10 @@ from django.urls import path
 
 from . import views
 
+admin.site.site_header = 'Orange County Lettings'
+admin.site.site_title = "Orange County Lettings"
+admin.site.index_title = "Orange County Lettings Administration"
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('lettings/', views.lettings_index, name='lettings_index'),
