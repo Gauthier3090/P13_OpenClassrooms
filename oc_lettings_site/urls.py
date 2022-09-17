@@ -1,7 +1,8 @@
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
 from . import views
+from django.conf.urls.static import static
 
 admin.site.site_header = 'Orange County Lettings'
 admin.site.site_title = "Orange County Lettings"
@@ -9,9 +10,8 @@ admin.site.index_title = "Orange County Lettings Administration"
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('lettings/', views.lettings_index, name='lettings_index'),
-    path('lettings/<int:letting_id>/', views.letting, name='letting'),
-    path('profiles/', views.profiles_index, name='profiles_index'),
-    path('profiles/<str:username>/', views.profile, name='profile'),
+    path('lettings/', include('lettings.urls')),
+    path('profiles/', include('profiles.urls')),
     path('admin/', admin.site.urls),
 ]
+
