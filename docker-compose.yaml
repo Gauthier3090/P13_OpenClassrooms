@@ -13,7 +13,8 @@ services:
       - '8000:8000'
     volumes:
         - .:/code
-    env_file:
-      - .env
+    environment:
+      DOCKERHUB_USER: DOCKERHUB_USER
+      DOCKERHUB_PASSWORD: DOCKERHUB_PASSWORD
 
 
