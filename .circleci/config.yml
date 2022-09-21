@@ -15,16 +15,35 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
-          python3 manage.py runserver
   test:
     working_directory: ~/.circleci
     docker:
-      - image: "circleci/python:3.9.13"
+      - image: "circleci/python:latest"
     steps:
       - checkout
       - run: python3 manage.py pytest
 
+
+  containerize:
+    docker:
+      - image: "circleci/python:latest"
+    resource_class: medium
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Containerize
+          command: docker compose up
+
+
 workflows:
-  build_and_test:
+  main:
     jobs:
       - build
+      - containerize:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+            - containerize
