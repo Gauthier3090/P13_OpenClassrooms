@@ -19,6 +19,7 @@ jobs:
       - image: "circleci/python:latest"
     steps:
       - checkout
+      - build
       - run: python3 manage.py pytest
 
 
