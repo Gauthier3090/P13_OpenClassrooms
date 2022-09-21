@@ -33,7 +33,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Containerize
-          command: docker compose up
+          command: docker-compose up
 
 
 workflows:
