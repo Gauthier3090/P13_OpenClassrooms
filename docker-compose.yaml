@@ -1,0 +1,19 @@
+version: '1.0'
+
+services:
+  django:
+    build: .
+    container_name: P13_OpenClassrooms
+    restart: always
+    command:
+      - python3
+      - manage.py
+      - runserver
+    ports:
+      - '8000:8000'
+    volumes:
+        - .:/code
+    env_file:
+      - .env
+
+
