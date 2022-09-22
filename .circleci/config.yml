@@ -39,10 +39,9 @@ jobs:
           command: |
             echo "${DOCKERHUB_PASSWORD}" | docker login --username ${DOCKERHUB_USER} --password-stdin
             IMAGE_TAG="0.0.${CIRCLE_SHA1}"
-            docker tag $DOCKERHUB_REPO:latest $DOCKERHUB_REPO:$IMAGE_TAG
-            docker push $DOCKERHUB_REPO:latest
-            docker push $DOCKERHUB_REPO:$IMAGE_TAG
-            docker build -t $DOCKERHUB_REPO:$IMAGE_TAG .
+            docker build -t p13_openclassrooms .
+            docker tag p13_openclassrooms $DOCKER_LOGIN/$DOCKER_REPO:$IMAGE_TAG
+            docker push $DOCKER_LOGIN/$DOCKER_REPO:$IMAGE_TAG
 
 workflows:
   main:
