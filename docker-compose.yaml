@@ -4,6 +4,7 @@ services:
   django:
     build: .
     container_name: P13_OpenClassrooms
+    image: circleci/python:latest
     restart: always
     command:
       - python3
@@ -13,9 +14,7 @@ services:
       - '8000:8000'
     volumes:
         - .:/code
-    environment:
-      DOCKERHUB_USER: DOCKERHUB_USER
-      DOCKERHUB_PASSWORD: DOCKERHUB_PASSWORD
-      DOCKERHUB_REPO: P13_OpenClassrooms
+    env_file:
+      - .env
 
 
