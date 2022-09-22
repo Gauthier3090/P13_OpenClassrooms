@@ -16,5 +16,6 @@ services:
     environment:
       DOCKERHUB_USER: DOCKERHUB_USER
       DOCKERHUB_PASSWORD: DOCKERHUB_PASSWORD
+      DOCKERHUB_REPO: P13_OpenClassrooms
 
 
