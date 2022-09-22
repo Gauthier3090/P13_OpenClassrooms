@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Containerize
           command: |
-            echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USER --password-stdin
+            docker login -u="${DOCKERHUB_USER}" -p="${DOCKERHUB_PASSWORD}"
             docker build -t image_oc_lettings_site .
             docker tag image_oc_lettings_site $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
             docker push $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
