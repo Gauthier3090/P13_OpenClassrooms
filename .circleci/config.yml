@@ -37,9 +37,9 @@ jobs:
       - run:
           name: Containerize
           command: |
-            docker build -t image_oc_lettings_site .
-            docker tag image_oc_lettings_site $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
-            docker push $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
+            docker build -t P13_OpenClassrooms .
+            docker tag P13_OpenClassrooms $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1:latest
+            docker push $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1:latest
             echo "${DOCKERHUB_PASSWORD}" | docker login --username ${DOCKERHUB_USER} --password-stdin
 
 workflows:
