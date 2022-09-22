@@ -37,8 +37,8 @@ jobs:
       - run:
           name: Containerize
           command: |
-            docker build -t P13_OpenClassrooms .
-            docker tag P13_OpenClassrooms $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1:latest
+            docker build -t p13_openclassrooms .
+            docker tag p13_openclassrooms $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1:latest
             docker push $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1:latest
             echo "${DOCKERHUB_PASSWORD}" | docker login --username ${DOCKERHUB_USER} --password-stdin
 
