@@ -38,10 +38,9 @@ jobs:
           name: Containerize
           command: |
             echo "${DOCKERHUB_PASSWORD}" | docker login --username ${DOCKERHUB_USER} --password-stdin
-            IMAGE_TAG="0.0.${CIRCLE_SHA1}"
-            docker build -t p13_openclassrooms .
-            docker tag p13_openclassrooms $DOCKER_LOGIN/$DOCKER_REPO:$IMAGE_TAG
-            docker push $DOCKER_LOGIN/$DOCKER_REPO:$IMAGE_TAG
+            docker build -t oc_lettings_site .
+            docker tag $CIRCLE_SHA1 oc_lettings_site/$CIRCLE_SHA1:latest
+            docker push oc_lettings_site/$CIRCLE_SHA1:latest
 
 workflows:
   main:
