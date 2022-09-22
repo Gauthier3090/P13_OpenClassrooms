@@ -1,8 +1,6 @@
-from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from django.conf.urls.static import static
 
 admin.site.site_header = 'Orange County Lettings'
 admin.site.site_title = "Orange County Lettings"
@@ -14,4 +12,3 @@ urlpatterns = [
     path('profiles/', include('profiles.urls')),
     path('admin/', admin.site.urls),
 ]
-
