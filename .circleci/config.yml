@@ -41,3 +41,11 @@ jobs:
             docker build -t image_oc_lettings_site .
             docker tag image_oc_lettings_site $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
             docker push $DOCKERHUB_USER/$DOCKERHUB_REPO:$CIRCLE_SHA1
+
+workflows:
+  main:
+    jobs:
+      - build_and_test
+      - containerize:
+          requires:
+            - build_and_test
