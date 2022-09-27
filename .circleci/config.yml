@@ -69,5 +69,5 @@ workflows:
             - build_and_test
       - deploy:
           requires:
-            - build-and-test
+            - build_and_test
             - containerize
