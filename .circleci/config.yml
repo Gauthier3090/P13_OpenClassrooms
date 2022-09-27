@@ -39,8 +39,8 @@ jobs:
           command: |
             echo "${DOCKERHUB_PASSWORD}" | docker login --username ${DOCKERHUB_USER} --password-stdin
             docker build -t oc_lettings_site .
-            docker tag oc_lettings_site oc_lettings_site:$CIRCLE_SHA1
-            docker push oc_lettings_site:$CIRCLE_SHA1
+            docker tag oc_lettings_site ${DOCKERHUB_USER}/$CIRCLE_SHA1
+            docker push ${DOCKERHUB_USER}/$CIRCLE_SHA1
 
 workflows:
   main:
