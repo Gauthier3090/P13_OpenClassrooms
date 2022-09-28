@@ -41,6 +41,7 @@ jobs:
             docker build -t oc_lettings_site .
             docker tag oc_lettings_site $DOCKER_LOGIN/oc_lettings_site:$CIRCLE_SHA1
             docker push $DOCKERHUB_USER/oc_lettings_site:$CIRCLE_SHA1
+            docker run -d --name db $DOCKERHUB_USER/oc_lettings_site:$CIRCLE_SHA1
 
   deploy:
     docker:
