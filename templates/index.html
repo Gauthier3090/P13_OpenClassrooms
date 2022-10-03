@@ -1,4 +1,10 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
 <title>Holiday Homes</title>
-<h1>Welcome to Holiday Homes</h1>
-<div><a href="{% url 'profiles:index' %}">Profiles</a></div>
-<div><a href="{% url 'lettings:index' %}">Lettings</a></div>
+<h1 class="title">Welcome to Holiday Homes</h1>
+<div class="menu">
+    <a class="item-menu" href="{% url 'profiles:index' %}">Profiles</a>
+    <a class="item-menu" href="{% url 'lettings:index' %}">Lettings</a>
+</div>
