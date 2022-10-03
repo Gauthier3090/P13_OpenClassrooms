@@ -20,4 +20,5 @@ RUN apk --purge del .build-deps
 RUN python3 -m pip install -r requirements.txt
 RUN python3 manage.py dumpdata -o data.json
 
+CMD python manage.py migrate 0.0.0.0:$PORT
 CMD python manage.py runserver 0.0.0.0:$PORT
