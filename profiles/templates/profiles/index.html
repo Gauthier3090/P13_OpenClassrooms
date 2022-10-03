@@ -1,9 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'lettings.css' %}">
+
+
 <title>Profiles</title>
-<h1>Profiles</h1>
+<h1 class="title">Profiles</h1>
+
+<div class="menu">
+    <a class="item-menu" href="{% url 'index' %}">Home</a>
+    <a class="item-menu" href="{% url 'lettings:index' %}">Lettings</a>
+</div>
+
+
 {% if profiles_list %}
-    <ul>
+    <ul class="table">
     {% for profile in profiles_list %}
-        <li>
+        <li class="table-item">
             <a href="{% url 'profiles:profile' username=profile.user.username %}">
                 {{ profile.user.username }}
             </a>
@@ -13,5 +26,3 @@
 {% else %}
     <p>No profiles are available.</p>
 {% endif %}
-<div><a href="{% url 'index' %}">Home</a></div>
-<div><a href="{% url 'lettings:index' %}">Lettings</a></div>
