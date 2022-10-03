@@ -16,7 +16,6 @@ COPY . .
 RUN apk add --no-cache postgresql-libs
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
 RUN apk --purge del .build-deps
-
 RUN python3 -m pip install -r requirements.txt
 RUN python3 manage.py dumpdata -o data.json
 
