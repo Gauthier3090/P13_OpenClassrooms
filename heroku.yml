@@ -13,4 +13,4 @@ build:
 release:
   command:
     - ./deployment-tasks.sh
-  image: cimg/python:3.10.2
+  image: Dockerfile
