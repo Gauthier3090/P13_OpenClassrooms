@@ -3,6 +3,7 @@ version: 2.1
 
 jobs:
   build_and_test:
+    resource_class: small
     docker:
       - image: cimg/python:3.10.2
         auth:
