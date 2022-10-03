@@ -11,6 +11,6 @@ build:
   config:
     RAILS_ENV: development
 release:
+  image: worker
   command:
     - ./deployment-tasks.sh
-  image: web
