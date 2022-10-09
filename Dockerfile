@@ -18,8 +18,8 @@ RUN apk add --no-cache postgresql-dev gcc python3-dev musl-dev
 RUN apk add --no-cache postgresql-libs
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
 RUN apk --purge del .build-deps
+RUN python3 -m pip install -r requirements.txt
+RUN python manage.py collectstatic --no-input
+RUN python3 manage.py dumpdata -o data.json
 
-CMD python3 -m pip install -r requirements.txt
-CMD python manage.py collectstatic --no-input
-CMD python3 manage.py dumpdata -o data.json
 CMD python manage.py runserver 0.0.0.0:$PORT
