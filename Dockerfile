@@ -22,4 +22,4 @@ RUN \
   python3 manage.py collectstatic --noinput --clear && \
   python3 manage.py dumpdata -o data.json
 
-CMD python manage.py runserver 127.0.0.1:$PORT
+CMD python manage.py runserver 0.0.0.0:$PORT
