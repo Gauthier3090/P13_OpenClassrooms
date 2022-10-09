@@ -14,6 +14,7 @@ ENV PORT 8080
 
 COPY . .
 
+RUN apk add --no-cache postgresql-dev gcc python3-dev musl-dev
 RUN apk add --no-cache postgresql-libs
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
 RUN apk --purge del .build-deps
