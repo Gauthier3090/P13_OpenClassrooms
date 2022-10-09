@@ -1,7 +1,7 @@
 import os
 import sentry_sdk
 import environ
-import django_heroku
+import mimetypes
 from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -109,19 +109,16 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/css'),
-)
+
+mimetypes.add_type("text/css", ".css", True)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -132,4 +129,3 @@ sentry_sdk.init(
     send_default_pii=True
 )
 
-django_heroku.settings(locals())
