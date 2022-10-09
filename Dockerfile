@@ -14,11 +14,10 @@ ENV PORT 8080
 
 COPY . .
 
-RUN \
-  apk add --no-cache postgresql-libs && \
-  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
-  pip install -r requirements.txt && \
-  python3 manage.py collectstatic --noinput && \
-  python3 manage.py dumpdata -o data.json
+RUN apk add --no-cache postgresql-libs
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+RUN pip install -r requirements.txt
+RUN python3 manage.py collectstatic --noinput 
+RUN python3 manage.py dumpdata -o data.json
 
 CMD python manage.py runserver 0.0.0.0:$PORT
