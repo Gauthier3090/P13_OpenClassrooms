@@ -21,4 +21,4 @@ RUN python3 -m pip install -r requirements.txt
 RUN python3 manage.py collectstatic --noinput --clear
 RUN python3 manage.py dumpdata -o data.json
 
-CMD python manage.py runserver 0.0.0.0:$PORT
+CMD python manage.py runserver 127.0.0.1:$PORT
