@@ -18,7 +18,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('DJANGO_SECRET_KEY', default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(env('DEBUG', default=0))
+DEBUG = False
 
 ALLOWED_HOSTS = ['oc-lettings-3090.herokuapp.com', '127.0.0.1', '0.0.0.0', 'localhost']
 
