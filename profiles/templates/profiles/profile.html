@@ -1,9 +1,36 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'profiles.css' %}">
+
+
 <title>{{ profile.user.username }}</title>
-<h1>{{ profile.user.username }}</h1>
-<p>First name: {{ profile.user.first_name }}</p>
-<p>Last name: {{ profile.user.last_name }}</p>
-<p>Email: {{ profile.user.email }}</p>
-<p>Favorite city: {{ profile.favorite_city }}</p>
-<div><a href="{% url 'profiles:index' %}">Back</a></div>
-<div><a href="{% url 'index' %}">Home</a></div>
-<div><a href="{% url 'lettings:index' %}">Lettings</a></div>
+<h1 class="title">{{ profile.user.username }}</h1>
+
+<h2 class="title">List of users</h2>
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Email</th>
+          <th scope="col">Favorite City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>{{ profile.user.first_name }}</td>
+            <td>{{ profile.user.last_name }}</td>
+            <td>{{ profile.user.email }}</td>
+            <td>{{ profile.favorite_city }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="menu">
+    <a class="item-menu" href="{% url 'profiles:index' %}">Back</a>
+    <a class="item-menu" href="{% url 'index' %}">Home</a>
+    <a class="item-menu" href="{% url 'lettings:index' %}">Lettings</a>
+</div>
